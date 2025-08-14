@@ -64,7 +64,7 @@ Resources:
         - ResourceName: ListItems
       CodeUri: src/ListItems
       Handler: index.handler
-      Runtime: nodejs18.x
+      Runtime: nodejs22.x
       MemorySize: 1024
       Timeout: 30
       Tracing: Active
@@ -90,7 +90,7 @@ Resources:
         - ResourceName: CreateItem
       CodeUri: src/CreateItem
       Handler: index.handler
-      Runtime: nodejs18.x
+      Runtime: nodejs22.x
       MemorySize: 1024
       Timeout: 30
       Tracing: Active
@@ -116,7 +116,7 @@ Resources:
         - ResourceName: GetItem
       CodeUri: src/GetItem
       Handler: index.handler
-      Runtime: nodejs18.x
+      Runtime: nodejs22.x
       MemorySize: 1024
       Timeout: 30
       Tracing: Active
@@ -142,7 +142,7 @@ Resources:
         - ResourceName: UpdateItem
       CodeUri: src/UpdateItem
       Handler: index.handler
-      Runtime: nodejs18.x
+      Runtime: nodejs22.x
       MemorySize: 1024
       Timeout: 30
       Tracing: Active
@@ -168,7 +168,7 @@ Resources:
         - ResourceName: DeleteItem
       CodeUri: src/DeleteItem
       Handler: index.handler
-      Runtime: nodejs18.x
+      Runtime: nodejs22.x
       MemorySize: 1024
       Timeout: 30
       Tracing: Active
