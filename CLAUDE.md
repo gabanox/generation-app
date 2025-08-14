@@ -11,7 +11,7 @@ This is an AWS Serverless Application Model (SAM) based REST API for items manag
 - **DynamoDB Table**: Stores items with 'id' as the primary key, using PAY_PER_REQUEST billing
 - **X-Ray Tracing**: Enabled across all functions and API Gateway
 
-Each Lambda function is isolated in its own directory under `src/` with individual `package.json` files. All functions use Node.js 18.x runtime and AWS SDK v2 with DynamoDB DocumentClient.
+Each Lambda function is isolated in its own directory under `src/` with individual `package.json` files. All functions use Node.js 22.x runtime and AWS SDK v2 with DynamoDB DocumentClient.
 
 ## Common Commands
 
@@ -60,3 +60,39 @@ Each Lambda function follows the same pattern:
 - `samconfig.toml` - SAM configuration with deployment settings
 - Individual `package.json` in each function directory for dependencies
 - Root `package.json` for project-level scripts and dev dependencies
+
+## Deployment Status
+
+**Current Stack**: `generation-app` deployed in `us-east-1`
+**Stack Status**: `CREATE_COMPLETE` 
+**API Base URL**: `https://wiv06gfrnj.execute-api.us-east-1.amazonaws.com/Prod`
+**Last Deployment**: Successfully deployed with Node.js 22.x runtime
+
+### Deployed Resources:
+- 5 Lambda Functions (ListItems, CreateItem, GetItem, UpdateItem, DeleteItem)
+- API Gateway REST API with CORS enabled
+- DynamoDB table named `Items` 
+- IAM roles with appropriate permissions for each function
+- X-Ray tracing enabled
+
+### Testing the API:
+```bash
+# List all items
+curl -X GET "https://wiv06gfrnj.execute-api.us-east-1.amazonaws.com/Prod/items"
+
+# Create an item
+curl -X POST "https://wiv06gfrnj.execute-api.us-east-1.amazonaws.com/Prod/items" \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Test Item","description":"A test item"}'
+
+# Get specific item (replace {id} with actual ID)
+curl -X GET "https://wiv06gfrnj.execute-api.us-east-1.amazonaws.com/Prod/items/{id}"
+
+# Update an item
+curl -X PUT "https://wiv06gfrnj.execute-api.us-east-1.amazonaws.com/Prod/items/{id}" \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Updated Item","description":"Updated description"}'
+
+# Delete an item
+curl -X DELETE "https://wiv06gfrnj.execute-api.us-east-1.amazonaws.com/Prod/items/{id}"
+```
